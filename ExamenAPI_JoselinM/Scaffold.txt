@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext -f "SERVER=.; DATABASE=AnswersDB; INTEGRATED SECURITY=FALSE; USER ID= Examen ; PASSWORD=123" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
