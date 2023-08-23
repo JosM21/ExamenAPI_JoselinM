@@ -49,6 +49,25 @@ namespace ExamenAPI_JoselinM.Controllers
             return ask;
         }
 
+
+
+        [HttpGet("GetAskListByUser")]
+        public async Task<ActionResult<IEnumerable<Ask>>> GetAskList(int id)
+        {
+            if (_context.Asks == null)
+            {
+                return NotFound();
+            }
+            var askList = await _context.Asks.Where(p => p.UserId.Equals(id)).ToListAsync();
+
+            if (askList == null)
+            {
+                return NotFound();
+            }
+
+            return askList;
+        }
+
         // PUT: api/Asks/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
